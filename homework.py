@@ -85,7 +85,7 @@ class CashCalculator(Calculator):
             conversion_debt = conversion_money * -1
             return f"Денег нет, держись: твой долг - {conversion_debt} {monetary_currency}"
 
-if __name__ == ‘__main__’
+
 
 
 
