@@ -39,11 +39,8 @@ class CaloriesCalculator(Calculator):
     def __str__(self):
          self.limit
     
-    def add_record(self, record):
-        super().add_record(record)
-
     def get_calories_remained(self):
-        today_calories = super().get_today_stats()
+        today_calories = self.get_today_stats()
         remains = self.limit - today_calories
         if self.limit > today_calories:
             return f"Сегодня можно съесть что-нибудь ещё, но с общей калорийностью не более {remains} кКал"       
@@ -66,7 +63,7 @@ class CashCalculator(Calculator):
         return (conversion, value_currency[1])
 
     def get_today_cash_remained(self, currency):
-        today_cash = super().get_today_stats()
+        today_cash = self.get_today_stats()
         remains = self.limit - today_cash
         conversion_remains = self.currency_conversion(remains, currency)
         conversion_money = (conversion_remains[0] if remains >= 0 
