@@ -69,7 +69,8 @@ class CashCalculator(Calculator):
         today_cash = super().get_today_stats()
         remains = self.limit - today_cash
         conversion_remains = self.currency_conversion(remains, currency)
-        conversion_money = conversion_remains[0] if remains >= 0 else conversion_remains[0] * -1
+        conversion_money = (conversion_remains[0] if remains >= 0 
+                            else conversion_remains[0] * -1)
         monetary_currency = conversion_remains[1]
         if self.limit > today_cash:
             return f"На сегодня осталось {conversion_money} {monetary_currency}"
